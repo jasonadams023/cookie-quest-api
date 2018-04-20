@@ -3,9 +3,10 @@ const cookieParser = require('cookie-parser');
 
 const app = http.createServer((req, res) => {
     let cookie = req.headers.cookie;
+
     if(cookie === undefined) {
         cookie = 'cookie-quest=new cookie!';
-    } else {
+    } else if (cookie.includes('action!')) {
         cookie = 'cookie-quest=updated cookie!';
     }
 

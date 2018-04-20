@@ -2,6 +2,7 @@ const request = require('supertest');
 const app = require('../../app/app');
 
 const newCookie = [ 'cookie-quest=new cookie!' ];
+const cookieToUpdate = [ 'cookie-quest=new cookie! action!' ];
 const updatedCookie = [ 'cookie-quest=updated cookie!'  ];
 
 describe('User Journey', () => {
@@ -12,9 +13,14 @@ describe('User Journey', () => {
         let response = await agent.get('/');
         expect(response.headers['set-cookie']).toEqual(newCookie);
 
-        //request with a cookie, gets back an updated cookie
+        //request with a cookie with nothing to change returns same cookie
         response = await agent.get('/')
         .set('Cookie', newCookie);
+        expect(response.headers['set-cookie']).toEqual(newCookie);
+
+        //request with a cookie and something to change returns an updated cookie
+        response = await agent.get('/')
+        .set('Cookie', cookieToUpdate);
         expect(response.headers['set-cookie']).toEqual(updatedCookie);
     });
 });

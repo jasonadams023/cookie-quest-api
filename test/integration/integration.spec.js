@@ -1,1 +1,27 @@
-it('empty', () => {});
+const request = require('supertest');
+const app = require('../../app/app');
+
+const newCookie = [ 'cookie-quest=new cookie!' ];
+const cookieToUpdate = [ 'cookie-quest=new cookie! action!' ];
+const updatedCookie = [ 'cookie-quest=updated cookie!'  ];
+
+describe('App', () => {
+    const agent= request(app);
+
+    it('should return a new cookie if not given one', async () => {
+        const response = await agent.get('/');
+        expect(response.headers['set-cookie']).toEqual(newCookie);
+    });
+
+    it('should return the same cookie if nothing to change', async () => {
+        const response = await agent.get('/')
+        .set('Cookie', newCookie);
+        expect(response.headers['set-cookie']).toEqual(newCookie);
+    });
+
+    it('should return updated cookie if supplied with cookie to change', async () => {
+        const response = await agent.get('/')
+        .set('Cookie', cookieToUpdate);
+        expect(response.headers['set-cookie']).toEqual(updatedCookie);
+    });
+});
