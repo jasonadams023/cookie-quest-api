@@ -1,13 +1,16 @@
 const http = require('http');
-const cookieParser = require('cookie-parser');
+const cookieHandler = require('./cookie-handler');
 
 const app = http.createServer((req, res) => {
     let cookie = req.headers.cookie;
 
-    if(cookie === undefined) {
-        cookie = 'cookie-quest=new cookie!';
-    } else if (cookie.includes('action!')) {
-        cookie = 'cookie-quest=updated cookie!';
+    if (cookie === undefined) {
+        cookie = cookieHandler.createCookie('cookie-quest', {data:'new cookie!'});
+    } else {
+        data = cookieHandler.parseCookie(cookie);
+        if (data.action !== undefined) {
+            cookie = cookieHandler.createCookie('cookie-quest', {data: 'updated cookie!'});
+        }
     }
 
     res.writeHead(200, {

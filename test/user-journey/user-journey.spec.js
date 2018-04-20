@@ -1,9 +1,10 @@
 const request = require('supertest');
 const app = require('../../app/app');
+const cookieHandler = require('../../app/cookie-handler');
 
-const newCookie = [ 'cookie-quest=new cookie!' ];
-const cookieToUpdate = [ 'cookie-quest=new cookie! action!' ];
-const updatedCookie = [ 'cookie-quest=updated cookie!'  ];
+const newCookie = ['cookie-quest={"data":"new cookie!"}'];
+const cookieToUpdate = ['cookie-quest={"data":"new cookie!", "action":"action!"}'];
+const updatedCookie = ['cookie-quest={"data":"updated cookie!"}'];
 
 describe('User Journey', () => {
     it('should go through the happy path', async () => {
