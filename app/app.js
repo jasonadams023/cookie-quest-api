@@ -13,12 +13,8 @@ const app = http.createServer((req, res) => {
         }
     }
 
-    res.writeHead(200, {
-        'Set-Cookie': cookie,
-        'Content-Type': 'text/plain'
-      });
-
-	res.end('Hello world');
+    res.writeHead(204, {'Set-Cookie': cookie});
+	res.end();
 });
 
 module.exports = app;
