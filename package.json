@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start": "nodemon ./app/server",
+        "start": "node ./app/server",
+        "start:watch": "nodemon ./app/server",
         "test": "jest",
         "test:watch": "jest --watchAll"
     },
