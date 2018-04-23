@@ -7,8 +7,6 @@ describe('CookieHandler', () => {
             data: 'some data'
         };
 
-        // console.log(JSON.stringify(cookieData));
-
         const cookie = cookieHandler.createCookie(cookieName, cookieData);
 
         expect(cookie).toEqual('cookie-name={"data":"some data"}');

@@ -36,6 +36,5 @@ describe('User Journey', () => {
         response = await agent.get('/')
         .set('Cookie', restartCookie);
         expect(response.headers['set-cookie']).toEqual(newCookie);
-
     });
 });
