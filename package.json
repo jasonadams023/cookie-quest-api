@@ -3,6 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "start": "node ./app/server",
+        "start:watch": "nodemon -q ./app/server",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:watchAll": "jest --watchAll",
         "test:container": "docker exec -it $(docker container ls -f \"volume=$(pwd)/app\" -qn 1) npm run test:watchAll",
         "build": "npm run build:base && npm run build:dev",
         "build:base": "docker build -t cookie-quest-api:base . -f ./docker/base/Dockerfile",
