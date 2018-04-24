@@ -1,4 +1,4 @@
-FROM cookie-quest:base
+FROM cookie-quest-api:base
 
 COPY ./package*.json ./
 RUN npm i && npm cache clean --force
