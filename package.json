@@ -3,10 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start": "node ./app/server",
-        "start:watch": "nodemon ./app/server",
-        "test": "jest",
-        "test:watch": "jest --watch",
+        "test:container": "docker exec -it $(docker container ls -f \"volume=$(pwd)/app\" -qn 1) npm run test:watchAll",
         "build": "npm run build:base && npm run build:dev",
         "build:base": "docker build -t cookie-quest-api:base . -f ./docker/base/Dockerfile",
         "build:dev": "docker build -t cookie-quest-api:dev . -f ./docker/dev/Dockerfile",
@@ -18,8 +15,5 @@
         "jest": "^22.4.3",
         "nodemon": "^1.17.3",
         "supertest": "^3.0.0"
-    },
-    "dependencies": {
-        "node": "^9.11.0"
     }
 }
