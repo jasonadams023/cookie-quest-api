@@ -7,6 +7,6 @@ WORKDIR /cookie-quest
 
 EXPOSE 3000
 
-COPY ../../app ./app
+COPY ./app ./app
 
 CMD ["node", "./app/server"]
