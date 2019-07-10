@@ -20,7 +20,7 @@ const app = http.createServer((req, res) => {
         }
     }
 
-    res.writeHead(204, {'Set-Cookie': cookie});
+    res.writeHead(200, {'Set-Cookie': cookie});
 	res.end();
 });
 
