@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/multi/Dockerfile
+    image: 'cookie-quest-api:multi'
+    ports:
+          - '3000:3000'
