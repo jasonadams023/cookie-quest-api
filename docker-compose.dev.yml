@@ -1,12 +1,13 @@
-version: '2'
+version: '3.4'
 
 services:
   api:
     build:
       context: .
-      dockerfile: ./docker/dev/Dockerfile
-    image: 'cookie-quest-api:dev'
+      dockerfile: ./docker/multi/Dockerfile
+      target: test
+    image: 'cookie-quest-api:multi'
     volumes:
-      - ./app:/cookie-quest/app
+      - ./:/cookie-quest
     ports:
           - '3000:3000'
