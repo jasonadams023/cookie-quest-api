@@ -5,6 +5,7 @@
     "scripts": {
         "start": "node ./app/server",
         "start:watch": "nodemon -q ./app/server",
+        "start:dev": "docker-compose -f docker-compose.dev.yml up",
         "test": "jest",
         "test:watch": "jest --watch",
         "test:watchAll": "jest --watchAll",
