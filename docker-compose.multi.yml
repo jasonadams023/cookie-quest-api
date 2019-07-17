@@ -7,4 +7,4 @@ services:
       dockerfile: ./docker/multi/Dockerfile
     image: 'cookie-quest-api:multi'
     ports:
-          - '3000:3000'
+      - '3000:3000'
