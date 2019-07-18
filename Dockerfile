@@ -6,21 +6,17 @@ ENTRYPOINT ["/sbin/tini", "--"]
 WORKDIR /cookie-quest
 
 COPY ./app ./app
-
-CMD ["node", "./app/server"]
-
-
-#############
-FROM base as build
-
 COPY ./package*.json ./
-RUN npm i
+
+CMD ["npm", "run", "start"]
 
 
 #############
-FROM build as test
+FROM base as test
 
 COPY ./test ./test
+RUN npm install
+
 RUN npm run test || exit 1
 
 
