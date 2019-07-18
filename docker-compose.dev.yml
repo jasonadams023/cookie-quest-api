@@ -4,10 +4,9 @@ services:
   api:
     build:
       context: .
-      target: test
+      target: dev
     image: 'cookie-quest-api:dev'
     volumes:
       - ./:/cookie-quest
     ports:
       - '3000:3000'
-    command: npm run start:watch
