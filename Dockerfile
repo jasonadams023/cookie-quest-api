@@ -14,6 +14,7 @@ CMD ["npm", "run", "start"]
 #############
 FROM base as dev
 
+RUN apk add git
 RUN npm install
 
 CMD ["npm", "run", "start:watch"]
