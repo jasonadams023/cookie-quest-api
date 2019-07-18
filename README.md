@@ -6,6 +6,7 @@ Experimental project using cookies and a state machine to play a game.
 
 ### Prerequisites
 
+* Install [nvm](https://github.com/nvm-sh/nvm) and use it to setup Node
 * Install and run [Docker](https://docs.docker.com/v17.12/install/)
 
 ### Run
