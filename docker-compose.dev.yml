@@ -3,7 +3,6 @@ version: '3.4'
 services:
   api:
     build:
-      context: .
       target: dev
     image: 'cookie-quest-api:dev'
     volumes:
