@@ -1,4 +1,4 @@
-FROM node:9.11.1-alpine as base
+FROM node:12.6.0-alpine as base
 
 RUN apk add --update tini
 ENTRYPOINT ["/sbin/tini", "--"]
